@@ -12,7 +12,7 @@
 ---
 
 Method Overview
-<p align="center"> <a href="Figures/overall.pdf"> <img src="Figures/overall.png" alt="Overview of the proposed method" width="75%"> </a> </p> <p align="center"><strong>Figure 1.</strong> We project the original samples using frame projections (Fourier, Gabor) and perform instance discrimination across domains. Lightweight latent-space mappers transfer complementary geometry back to the main encoder during inference.</p>
+<p align="center"> <a href="Figures/overall.pdf"> <img src="Figures/overall.png" alt="Overview of the proposed method" width="75%"> </a> </p> <p align="center"><strong>Figure 1.</strong> We project the original sample using frame projections (Fourier, Gabor) and perform instance discrimination across domains. Lightweight latent-space mappers transfer complementary geometry during inference.</p>
 
 ### TL;DR
 
