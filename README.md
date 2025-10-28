@@ -1,15 +1,3 @@
-It already looks **super solid** — clean, concise, easy to follow.
-Just a few tiny fixes to make it more polished and correct:
-
-✅ Remove the accidental “2.” / “3.” numbering (they appear out of place)
-✅ Fix the Hugging Face link (currently pointing to the README, not the dataset root)
-✅ Slight rewording to keep the tone consistent
-✅ Optional: add a heading for the paper link later
-
-Here is the improved version — you can copy-paste this:
-
----
-
 ## Learning Without Augmenting: Unsupervised Time Series Representation Learning via Frame Projections
 
 (NeurIPS 2025, Official Code)
