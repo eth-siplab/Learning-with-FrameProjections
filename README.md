@@ -24,6 +24,7 @@
 ### Contents
 
 * [Datasets](#datasets)
+* [Environment](#environment)
 * [Setup & Training](#setup--training)
 * [Implementation](#implementation)
 
@@ -43,8 +44,33 @@ You can prepare the data using scripts from our previous works:
 [https://github.com/eth-siplab/Unsupervised_Periodicity_Detection/tree/main/Heuristic_and_data_prep](https://github.com/eth-siplab/Unsupervised_Periodicity_Detection/tree/main/Heuristic_and_data_prep)
 [https://github.com/eth-siplab/Finding_Order_in_Chaos](https://github.com/eth-siplab/Finding_Order_in_Chaos)
 
-Or download the preprocessed data directly from Hugging Face:
+Or download the **preprocessed datasets** directly from Hugging Face:
 [https://huggingface.co/datasets/eth-siplab/Learning-with-FrameProjections](https://huggingface.co/datasets/eth-siplab/Learning-with-FrameProjections)
+
+---
+
+### Environment
+
+**Option A — Conda**
+
+```bash
+conda env create -f environment.yml
+conda activate isoalign
+
+# Install PyTorch (choose according to your setup)
+# CUDA 12.x
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# or CPU
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+```
+
+**Option B — Pip**
+
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements_minimal.txt
+```
 
 ---
 
@@ -86,8 +112,6 @@ python main_supervised_baseline.py \
 
 **Notes**
 
-* Adjust `--dataset`, `--n_epoch`, and `--batch_size` for your GPU memory
-* `--framework` accepts both baselines (e.g., `simclr`) and our method (`isoalign`)
-
----
+* Adjust `--dataset`, `--n_epoch`, and `--batch_size` based on GPU memory
+* `--framework` supports baselines (e.g., `simclr`) and our method (`isoalign`)
 
