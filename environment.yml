@@ -1,0 +1,22 @@
+name: isoalign
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy>=1.9
+  - pandas>=1.4
+  - scikit-learn
+  - pywavelets
+  - pyarrow
+  - h5py
+  - pyyaml>=6.0.1
+  - tqdm
+  - pip
+  - pip:
+      - einops
+      - datasets
+      - huggingface_hub
+# Install torch separately (README shows CUDA/CPU commands)

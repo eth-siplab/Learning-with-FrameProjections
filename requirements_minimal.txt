@@ -1,0 +1,12 @@
+numpy
+scipy>=1.9
+pandas>=1.4
+scikit-learn
+pywavelets
+pyarrow
+h5py                 # for .mat v7.3 files
+einops
+pyyaml>=6.0.1
+tqdm
+datasets
+huggingface_hub
