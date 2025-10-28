@@ -14,6 +14,10 @@
 Method Overview
 <p align="center"> <a href="Figures/overall.pdf"> <img src="Figures/overall.png" alt="Overview of the proposed method" width="75%"> </a> </p> <p align="center"><strong>Figure 1.</strong> We project the original sample using frame projections (Fourier, Gabor) and perform instance discrimination across domains. Lightweight latent-space mappers transfer complementary geometry during inference.</p>
 
+
+**Paper (arXiv):** https://arxiv.org/abs/2510.22655  
+**NeurIPS 2025:** https://neurips.cc/virtual/2025/poster/118514
+
 ### TL;DR
 
 * No augmentations
