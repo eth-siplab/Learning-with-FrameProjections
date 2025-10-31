@@ -7,7 +7,7 @@
 
 ---
 
-> This work introduces an unsupervised representation learning method for time series that replaces handcrafted augmentations with projections into orthonormal and overcomplete frames (Fourier & Gabor). We perform instance discrimination across domains and use lightweight latent-space mappers to benefit from complementary geometries. Without increasing data diversity, our method achieves strong improvements across heart rate estimation, activity recognition, cardiovascular disease classification, step counting, and sleep staging.
+> This work introduces an unsupervised representation learning method for time series that replaces handcrafted augmentations with projections into orthonormal and overcomplete frames (Fourier & Gabor). We perform instance discrimination across these domains and use lightweight latent-space mappers to benefit from complementary geometries. Without increasing data diversity, our method achieves strong improvements across heart rate estimation, activity recognition, cardiovascular disease classification, step counting, and sleep staging.
 
 ---
 
@@ -20,11 +20,7 @@ Method Overview
 
 ### TL;DR
 
-* No augmentations
-* Fourier + Gabor views
-* Instance discrimination across domains
-* Latent mappers at inference (no extra encoders)
-* Outperforms prior SSL methods on 9 datasets / 5 tasks
+We introduce an augmentation-free SSL method that learns from complementary views generated through Fourier and Gabor projections. By performing instance discrimination across these domains, the model captures diverse geometric structures. At inference, lightweight latent mappers replace additional encoders for efficient multi-view reasoning. The approach achieves up to 20% higher performance than prior methods across five tasks.
 
 ---
 
