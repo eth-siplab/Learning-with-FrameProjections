@@ -113,8 +113,3 @@ python main_supervised_baseline.py \
 * **Our method + ablations:** `frameworks.py` (lines **301–469**)
 * **Losses (NT-Xent, CLIP, etc.):** `loss.py`
 
-**Notes**
-
-* Adjust `--dataset`, `--n_epoch`, and `--batch_size` based on GPU memory
-* `--framework` supports baselines (e.g., `simclr`) and our method (`isoalign`)
-
