@@ -11,10 +11,11 @@ import torch
 import scipy.io
 import pickle as cp
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
+from data_preprocess.data_preprocess_utils import get_data_root
 from utils import WaveletTransform, FourierTransform
 
 def load_domain_data():
-    str_folder = '/data/'
+    str_folder = get_data_root() + '/'
     data = torch.load(str_folder + 'sleep_combined.pt')
     train = data['train']
     val = data['val']

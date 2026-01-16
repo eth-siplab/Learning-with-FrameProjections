@@ -10,13 +10,13 @@ from torchvision import transforms
 import torch
 import scipy.io
 import pickle as cp
-from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split
+from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split, get_dataset_path
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
 from utils import WaveletTransform, FourierTransform
 
 
 def load_domain_data(domain_idx):
-    str_folder = '/data/ECG_data/'
+    str_folder = get_dataset_path('ECG_data') + '/'
     file = open(str_folder + 'ECG_data.pkl', 'rb')
     data = cp.load(file)
     data = data['whole_dataset']

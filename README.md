@@ -50,6 +50,28 @@ You can prepare the data using scripts from our previous works:
 Or download the **preprocessed datasets** directly from Hugging Face:
 [https://huggingface.co/datasets/eth-siplab/Learning-with-FrameProjections](https://huggingface.co/datasets/eth-siplab/Learning-with-FrameProjections)
 
+**Data location:** By default, datasets are expected in `/data/`. To use a custom location, set the `DATA_ROOT` environment variable:
+
+```bash
+export DATA_ROOT=/path/to/your/datasets
+python main.py --dataset hhar
+```
+
+Expected directory structure under `$DATA_ROOT`:
+```
+$DATA_ROOT/
+├── HHAR/
+│   └── Activity recognition exp/
+├── IEEE_Small/
+├── IEEE_Big/
+├── UCI HAR Dataset/
+├── ECG_data/
+├── DaLia/
+├── usc_data/
+├── sleep_combined.pt
+└── clemson.mat
+```
+
 ---
 
 ### Environment

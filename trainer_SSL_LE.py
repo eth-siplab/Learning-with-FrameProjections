@@ -90,7 +90,6 @@ def setup_dataloaders(args):
         args.len_sw = 100
         args.n_class = 6
         source_domain = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'] if args.cases == 'subject_large_ssl_fn' else ['a', 'b', 'c', 'd']
-        # source_domain.remove(args.target_domain)
         train_loaders, val_loader, test_loader = data_preprocess_hhar.prep_hhar(args, SLIDING_WINDOW_LEN=args.len_sw, SLIDING_WINDOW_STEP=int(args.len_sw * 0.5),
                                                                                 device=args.device,
                                                                                 train_user=source_domain,

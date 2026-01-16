@@ -7,11 +7,12 @@ import scipy.io
 import pickle as cp
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
 from data_preprocess.augmentations import gen_aug
+from data_preprocess.data_preprocess_utils import get_dataset_path
 from utils import WaveletTransform, FourierTransform
 
 
 def load_domain_data(domain_idx):
-    str_folder = '/data/IEEE_Big/'
+    str_folder = get_dataset_path('IEEE_Big') + '/'
     data_all = scipy.io.loadmat(str_folder + 'IEEE_Big.mat') 
     data = data_all['whole_dataset']
     domain_idx = int(domain_idx)

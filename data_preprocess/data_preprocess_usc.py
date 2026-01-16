@@ -10,13 +10,13 @@ from torchvision import transforms
 import torch
 import scipy.io
 import pickle as cp
-from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split
+from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split, get_dataset_path
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
 from utils import WaveletTransform, FourierTransform
 
 
 def load_domain_data(domain_idx):
-    str_folder = '/data/usc_data/'
+    str_folder = get_dataset_path('usc_data') + '/'
     data_all = scipy.io.loadmat(str_folder + 'usc_data.mat')
     data = data_all['whole_dataset']
     domain_idx = int(domain_idx)
