@@ -11,7 +11,7 @@ from scipy.interpolate import interp1d
 import torch
 import pickle5 as cp
 from torch.utils.data import Dataset, DataLoader
-from data_preprocess.data_preprocess_utils import get_sample_weights, opp_sliding_window, normalize, train_test_val_split
+from data_preprocess.data_preprocess_utils import get_sample_weights, opp_sliding_window, normalize, train_test_val_split, get_dataset_path
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
 from utils import WaveletTransform, FourierTransform
 
@@ -61,10 +61,10 @@ def sep_user_device_gt():
     gt_list = ['bike', 'sit', 'stand', 'walk', 'stairsup', 'stairsdown', 'null']
     watch_device = ['gear_1', 'gear_2', 'lgwatch_1', 'lgwatch_2']
     phone_device = ['nexus4_1', 'nexus4_2', 's3_1', 's3_2', 's3mini_1', 's3mini_2', 'samsungold_1', 'samsungold_2']
-    dataDir = '/data/HHAR/Activity recognition exp/'
+    dataDir = get_dataset_path('HHAR/Activity recognition exp/')
     fileInList = os.listdir(dataDir)
 
-    saveDir = '/data/HHAR/avtivity_data_separated/'
+    saveDir = get_dataset_path('HHAR/avtivity_data_separated/')
     if not os.path.exists(saveDir):
         os.mkdir(saveDir)
         
@@ -88,8 +88,8 @@ def sep_user_device_gt():
                     sep_df.to_csv(saveDir+cur_file_name)
 
 def combine_acc_gyr():
-    dataDir = '/data/HHAR/avtivity_data_separated/'
-    saveDir = '/data/HHAR/avtivity_data_acc_gyr/'
+    dataDir = get_dataset_path('HHAR/avtivity_data_separated/')
+    saveDir = get_dataset_path('HHAR/avtivity_data_acc_gyr/')
     if not os.path.exists(saveDir):
         os.mkdir(saveDir)
     user_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
@@ -140,8 +140,8 @@ def combine_acc_gyr():
                 df_acc_gyr.to_csv(saveDir+cur_file_name)
 
 def interpolate():
-    dataDir = '/data/HHAR/avtivity_data_acc_gyr/'
-    saveDir = '/data/HHAR/avtivity_data_acc_gyr_interp/'
+    dataDir = get_dataset_path('HHAR/avtivity_data_acc_gyr/')
+    saveDir = get_dataset_path('HHAR/avtivity_data_acc_gyr_interp/')
     if not os.path.exists(saveDir):
         os.mkdir(saveDir)
     user_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
@@ -216,7 +216,7 @@ def preprocess():
 
 def split_train_test_subject(train_user, test_user, device, SLIDING_WINDOW_LEN=100, SLIDING_WINDOW_STEP=50):
     # todo besides user domain, consider device domain
-    dataDir = '/data/HHAR/avtivity_data_acc_gyr_interp/'
+    dataDir = get_dataset_path('HHAR/avtivity_data_acc_gyr_interp/')
     if os.path.isdir(dataDir) == False:
         preprocess()
     user_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
@@ -278,7 +278,7 @@ def split_train_test_subject(train_user, test_user, device, SLIDING_WINDOW_LEN=1
 
 def split_train_test_subject_sp(train_user, test_user, device, SLIDING_WINDOW_LEN=100, SLIDING_WINDOW_STEP=50):
     # todo besides user domain, consider device domain
-    dataDir = '/data/HHAR/avtivity_data_acc_gyr_interp/'
+    dataDir = get_dataset_path('HHAR/avtivity_data_acc_gyr_interp/')
     if os.path.isdir(dataDir) == False:
         preprocess()
     user_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
@@ -354,8 +354,8 @@ def split_train_test_subject_sp(train_user, test_user, device, SLIDING_WINDOW_LE
 
 def split_train_test(device, args, SLIDING_WINDOW_LEN=100, SLIDING_WINDOW_STEP=50):
     # device: 'Watch' or 'Phones'
-    dataDir = '/data/HHAR/avtivity_data_acc_gyr_interp/'
-    preprocess_Dir = '/data/HHAR/hhar_processed_'+device+'.data'
+    dataDir = get_dataset_path('HHAR/avtivity_data_acc_gyr_interp/')
+    preprocess_Dir = get_dataset_path('HHAR/hhar_processed_'+device+'.data')
     if os.path.isfile(preprocess_Dir) == True:
         #print('data is preprocessed in advance! Loading...')
         data = np.load(preprocess_Dir, allow_pickle=True)

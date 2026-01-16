@@ -1,7 +1,20 @@
+import os
 import numpy as np
 from numpy.lib.stride_tricks import as_strided as ast
 # from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
+
+# Environment variable for data root directory
+DATA_ROOT_ENV_VAR = "DATA_ROOT"
+DEFAULT_DATA_ROOT = "/data"
+
+def get_data_root():
+    """Returns DATA_ROOT env var or '/data' by default."""
+    return os.environ.get(DATA_ROOT_ENV_VAR, DEFAULT_DATA_ROOT)
+
+def get_dataset_path(subpath):
+    """Join data root with dataset subpath."""
+    return os.path.join(get_data_root(), subpath)
 
 # @dataclass
 # class Params:

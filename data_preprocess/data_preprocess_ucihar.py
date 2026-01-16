@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms
 import torch
 import pickle as cp
-from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split, train_val_split
+from data_preprocess.data_preprocess_utils import get_sample_weights, train_test_val_split, train_val_split, get_dataset_path
 from data_preprocess.base_loader import base_loader, base_loader_isoalign
 from utils import WaveletTransform, FourierTransform
 
@@ -41,7 +41,7 @@ def load_domain_data(domain_idx):
     :param domain_idx: index of a single domain
     :return: X and y data of the entire domain
     """
-    data_dir = '/data/ucihar/'
+    data_dir = get_dataset_path('ucihar/')
     saved_filename = 'ucihar_domain_' + domain_idx + '_wd.data' # "wd": with domain label
 
     if os.path.isfile(data_dir + saved_filename) == True:
@@ -52,7 +52,7 @@ def load_domain_data(domain_idx):
     else:
         if os.path.isdir(data_dir) == False:
             os.makedirs(data_dir)
-        str_folder = './data/UCI HAR Dataset/'
+        str_folder = get_dataset_path('UCI HAR Dataset/')
         INPUT_SIGNAL_TYPES = [
             "body_acc_x_",
             "body_acc_y_",
