@@ -262,7 +262,7 @@ def split_train_test_subject(train_user, test_user, device, SLIDING_WINDOW_LEN=1
                         x_test = np.concatenate((x_test, data_sw), axis=0)
                         y_test = np.concatenate((y_test, label_sw), axis=None)
                         d_test = np.concatenate((d_test, d_sw), axis=None)
-                if user == train_user or user in train_user:
+                elif user == train_user or user in train_user:
                     if x_train is None:
                         x_train = data_sw
                         y_train = label_sw
