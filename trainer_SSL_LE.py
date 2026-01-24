@@ -685,9 +685,8 @@ def train_mappers(train_loaders, model, DEVICE, args):
                 cwt_mapped = map_cwt(time_emb)
                 
                 # Compute separate MSE losses.
-                loss_ft = torch.nn.L1Loss()(ft_mapped, time_emb)
+                loss_ft  = torch.nn.L1Loss()(ft_mapped, FT_emb)
                 loss_cwt = torch.nn.L1Loss()(cwt_mapped, cwt_emb)
-
                 # loss_ft  = F.mse_loss(ft_mapped, FT_emb) # Ablation
                 # loss_cwt = F.mse_loss(cwt_mapped, cwt_emb) # Ablation
 
